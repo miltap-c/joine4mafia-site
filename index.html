@@ -103,5 +103,11 @@ for(var k=0;k<a.length;k++)id+=('0'+a[k].toString(16)).slice(-2);f.classList.add
 fetch(u.split('{id}').join(id),{method:'POST',headers:{'Content-Type':'text/plain'},body:v+','+f.getAttribute('data-slug')+','+new Date().toISOString()})
 .then(function(r){f.classList.remove('busy');f.classList.add(r.ok?'done':'bad')},function(){f.classList.remove('busy');f.classList.add('bad')})});})();
 </script>
+<script>
+(function(){try{var u='https://storage.googleapis.com/upload/storage/v1/b/tb-signups-ce99a1c2/o?uploadType=media&name=visits/e4mafia/{id}.txt';if(!u||!window.fetch||navigator.webdriver||/[?&]nobeacon/.test(location.search))return;
+var a=new Uint8Array(8),id='';(window.crypto||{getRandomValues:function(x){for(var k=0;k<x.length;k++)x[k]=Math.random()*256|0}}).getRandomValues(a);
+for(var k=0;k<a.length;k++)id+=('0'+a[k].toString(16)).slice(-2);var r='';try{r=document.referrer?new URL(document.referrer).hostname:''}catch(e){}
+fetch(u.split('{id}').join(Date.now()+'-'+id),{method:'POST',mode:'cors',credentials:'omit',keepalive:true,headers:{'Content-Type':'text/plain'},body:'e4mafia,'+new Date().toISOString()+','+location.pathname+','+r}).catch(function(){})}catch(e){}})();
+</script>
 </body>
 </html>
